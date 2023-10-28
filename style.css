@@ -159,17 +159,24 @@ body {
   bottom: 0;
 }
 
+#car-container {
+  /* ...otros estilos... */
+  z-index: 1; /* Asegúrate de que el z-index sea menor que el de la calle */
+  /* ...otros estilos... */
+}
+
 #car-container img {
   width: 100px; /* Ajusta el tamaño del coche según tus necesidades */
   height: auto;
   position: relative;
-  top: -216px; /* Ajusta la posición vertical del coche según tus necesidades */
+  top: -XXpx; /* Ajusta la posición vertical del coche según tus necesidades */
   margin-left: 100px;
 }
 
 #road-container img {
   width: 100%; /* La calle ocupará el 100% del contenedor */
   height: auto;
+  top: YYpx;
 }
 
 body{
