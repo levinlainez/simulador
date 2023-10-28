@@ -1,117 +1,130 @@
 const carContainer = document.getElementById("car-container");
 const roadContainer = document.getElementById("road-container");
 
-
-
 let carPos = 0;
 let impulso = 0;
 let tiempo = 0;
 let tiempoTranscurrido = 0;
-let interval; // Agrega esta línea para definir la variable de intervalo
+let interval; 
 
 function moverCarro() {
-  // Verifica la posición del carro respecto a las monedas
- 
-
-console.log('Carro:', carContainer.getBoundingClientRect());
-monedasNoRecolectadas.forEach(moneda => {
-   console.log('Moneda:', moneda.getBoundingClientRect());
-   if (detectarColision(carContainer, moneda)) {
-      // ...
-   }
-});
-
-
   if (carPos < impulso) {
-    carPos += 5; // Ajusta la velocidad del coche según tus necesidades
+    carPos += 5;
     carContainer.style.left = carPos + "px";
-    tiempoTranscurrido += 50; // Aumenta el tiempo transcurrido en 50 milisegundos
+    tiempoTranscurrido += 50;
   } else {
-    clearInterval(interval); // Detiene el movimiento del coche cuando alcanza el impulso
+    clearInterval(interval);
     calcularVelocidadRecorrida();
   }
 }
 
 const miBoton = document.getElementById("miBoton");
 
-    miBoton.addEventListener("click", function() {
-        // Redirigir a los usuarios a la página de Google cuando se hace clic en el botón
-        window.location.href = "https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_es.html";
-    });
+miBoton.addEventListener("click", function() {
+  window.location.href = "https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_es.html";
+});
+
 const startSimulationBtn = document.getElementById("startSimulationBtn");
 
 startSimulationBtn.addEventListener("click", function() {
-    impulso = parseFloat(document.getElementById("input2").value);
-    tiempo = parseFloat(document.getElementById("input3").value);
+  carPos = 0; // Restablece la posición del carro a 0 al iniciar la simulación
 
-    if (isNaN(impulso) || impulso <= 0 || isNaN(tiempo) || tiempo <= 0) {
-        alert("Por favor, ingrese valores válidos y positivos para Fuerza de Impulso y Tiempo.");
-        return;
-    }
-
-    const roadWidth = roadContainer.clientWidth;
-    const velocidad = roadWidth / impulso * 5;
-
-    interval = setInterval(moverCarro, velocidad);
-});
-
-
-function calcularVelocidadRecorrida() {
-    const masa = parseFloat(document.getElementById("input1").value);
-    const coeficienteFriccion = parseFloat(document.getElementById("input4").value);
-    const aceleracionGravedad = 9.81; // m/s^2
-    
-    // Calcula la fuerza de fricción
-    const fuerzaNormal = masa * aceleracionGravedad;
-    const fuerzaFriccion = coeficienteFriccion * fuerzaNormal;
-
-    // Fuerza impulsora proporcionada por el usuario (ya está en impulso)
-    const fuerzaImpulsora = impulso;
-
-    // Calcula la fuerza neta
-    const fuerzaNeta = fuerzaImpulsora - fuerzaFriccion;
-
-    // Calcula la aceleración usando la segunda ley de Newton (Fuerza = masa * aceleración)
-    const aceleracion = fuerzaNeta / masa;
-
-    // Calcula la distancia recorrida usando la ecuación del MRUA: s = ut + (1/2)at^2
-    const distanciaRecorrida = 0.5 * aceleracion * Math.pow(tiempo, 2);
-
-
-
-// Actualiza los elementos en la tabla
-document.getElementById("tablaCuerpo").innerHTML = `
-    <tr>
-        <td>${masa.toFixed(2)}</td>
-        <td>${fuerzaImpulsora.toFixed(2)}</td> 
-        <td>${tiempo.toFixed(2)}</td>
-        <td>${coeficienteFriccion.toFixed(2)}</td>
-        <td>${fuerzaFriccion.toFixed(2)}</td>
-        <td>${fuerzaNeta.toFixed(2)}</td>
-        <td>${aceleracion.toFixed(2)}</td>
-        <td>${distanciaRecorrida.toFixed(2)}</td>   
-    </tr>
-`;
-
-}
-
-  
-
-function pedirImpulso() {
   impulso = parseFloat(document.getElementById("input2").value);
   tiempo = parseFloat(document.getElementById("input3").value);
 
-  
-
-  // Calcula el ancho de la carretera
   const roadWidth = roadContainer.clientWidth;
+  const velocidad = roadWidth / impulso * 10;
 
-  // Calcula la velocidad proporcional al impulso para que el coche llegue al final de la carretera
-  const velocidad = roadWidth / impulso * 10; // Ajusta el factor multiplicador según tus necesidades
-
-  // Mueve el coche cada 50 milisegundos
   interval = setInterval(moverCarro, velocidad);
+
+  // Guarda los datos en localStorage solo cuando se hace clic en el botón de simulación
+  calcularVelocidadRecorrida();
+  
+});
+
+function calcularVelocidadRecorrida() {
+  const masa = parseFloat(document.getElementById("input1").value);
+  const coeficienteFriccion = parseFloat(document.getElementById("input4").value);
+  const aceleracionGravedad = 9.81; 
+  const fuerzaNormal = masa * aceleracionGravedad;
+  const fuerzaFriccion = coeficienteFriccion * fuerzaNormal;
+  const fuerzaImpulsora = impulso;
+  const fuerzaNeta = fuerzaImpulsora - fuerzaFriccion;
+  const aceleracion = fuerzaNeta / masa;
+  const distanciaRecorrida = 0.5 * aceleracion * Math.pow(tiempo, 2);
+
+  const nuevoRegistro = {
+    masa: masa.toFixed(2),
+    fuerzaImpulsora: fuerzaImpulsora.toFixed(2),
+    tiempo: tiempo.toFixed(2),
+    coeficienteFriccion: coeficienteFriccion.toFixed(2),
+    fuerzaFriccion: fuerzaFriccion.toFixed(2),
+    fuerzaNeta: fuerzaNeta.toFixed(2),
+    aceleracion: aceleracion.toFixed(2),
+    distanciaRecorrida: distanciaRecorrida.toFixed(2)
+  };
+
+  // Obtiene el arreglo existente del localStorage o crea uno vacío si no existe
+  const registros = JSON.parse(localStorage.getItem('registros')) || [];
+
+  // Verifica si ya existe un registro con los mismos valores
+  const indice = registros.findIndex(registro => {
+    return (
+      registro.masa === nuevoRegistro.masa &&
+      registro.fuerzaImpulsora === nuevoRegistro.fuerzaImpulsora &&
+      registro.tiempo === nuevoRegistro.tiempo &&
+      registro.coeficienteFriccion === nuevoRegistro.coeficienteFriccion &&
+      registro.fuerzaFriccion === nuevoRegistro.fuerzaFriccion &&
+      registro.fuerzaNeta === nuevoRegistro.fuerzaNeta &&
+      registro.aceleracion === nuevoRegistro.aceleracion &&
+      registro.distanciaRecorrida === nuevoRegistro.distanciaRecorrida
+    );
+  });
+
+  // Si se encuentra un registro existente, actualiza ese registro; si no, agrega uno nuevo
+  if (indice !== -1) {
+    registros[indice] = nuevoRegistro;
+  } else {
+    registros.push(nuevoRegistro);
+  }
+
+  // Guarda el arreglo actualizado en localStorage
+  localStorage.setItem('registros', JSON.stringify(registros));
+
+  // Actualiza la tabla en la interfaz de usuario
+  actualizarTabla();
+  
 }
 
-// Llama a la función para pedir el impulso al cargar la página
-pedirImpulso();
+function actualizarTabla() {
+  const registrosGuardados = JSON.parse(localStorage.getItem('registros'));
+  const tablaCuerpo = document.getElementById("tablaCuerpo");
+  tablaCuerpo.innerHTML = '';
+  if (registrosGuardados) {
+    registrosGuardados.forEach(registro => {
+      tablaCuerpo.innerHTML += `
+        <tr>
+          <td>${registro.masa}</td>
+          <td>${registro.fuerzaImpulsora}</td> 
+          <td>${registro.tiempo}</td>
+          <td>${registro.coeficienteFriccion}</td>
+          <td>${registro.fuerzaFriccion}</td>
+          <td>${registro.fuerzaNeta}</td>
+          <td>${registro.aceleracion}</td>
+          <td>${registro.distanciaRecorrida}</td>   
+        </tr>
+      `;
+    });
+  }
+}
+
+
+window.onload = function() {
+  // Llama a la función para pedir el impulso al cargar la página
+  
+
+  // Verifica si hay registros en el localStorage y actualiza la tabla si los hay
+  if (localStorage.getItem('registros')) {
+    actualizarTabla();
+  }
+};
