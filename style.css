@@ -187,6 +187,60 @@ body{
 }
 
 
+
+#moneda-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+    padding: 0;
+}
+
+
+#moneda-container img {
+  width: 50px; /* Ajusta el tamaño del coche según tus necesidades */
+  height: auto;
+  position: relative;
+  top: -290px; /* Ajusta la posición vertical del coche según tus necesidades */
+  left: 400px;
+}
+
+#moneda-container2 {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+    padding: 0;
+}
+
+
+#moneda-container2 img {
+  width: 50px; /* Ajusta el tamaño del coche según tus necesidades */
+  height: auto;
+  position: relative;
+  top: -330px; /* Ajusta la posición vertical del coche según tus necesidades */
+  left: 700px;
+}
+
+#moneda-container3 {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+    padding: 0;
+}
+
+
+#moneda-container3 img {
+  width: 50px; /* Ajusta el tamaño del coche según tus necesidades */
+  height: auto;
+  position: relative;
+  top: -290px; /* Ajusta la posición vertical del coche según tus necesidades */
+  left: 1100px;
+}
+
+
+
 /*aqui termina mi codigo*/
 .bg-purple{
   background-color: rgb(93, 50, 209);

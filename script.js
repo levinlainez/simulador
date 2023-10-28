@@ -1,5 +1,8 @@
 const carContainer = document.getElementById("car-container");
 const roadContainer = document.getElementById("road-container");
+
+
+
 let carPos = 0;
 let impulso = 0;
 let tiempo = 0;
@@ -7,6 +10,18 @@ let tiempoTranscurrido = 0;
 let interval; // Agrega esta línea para definir la variable de intervalo
 
 function moverCarro() {
+  // Verifica la posición del carro respecto a las monedas
+ 
+
+console.log('Carro:', carContainer.getBoundingClientRect());
+monedasNoRecolectadas.forEach(moneda => {
+   console.log('Moneda:', moneda.getBoundingClientRect());
+   if (detectarColision(carContainer, moneda)) {
+      // ...
+   }
+});
+
+
   if (carPos < impulso) {
     carPos += 5; // Ajusta la velocidad del coche según tus necesidades
     carContainer.style.left = carPos + "px";
