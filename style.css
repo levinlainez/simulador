@@ -208,7 +208,7 @@ body{
   width: 50px; /* Ajusta el tamaño del coche según tus necesidades */
   height: auto;
   position: relative;
-  top: -290px; /* Ajusta la posición vertical del coche según tus necesidades */
+  top: -200px; /* Ajusta la posición vertical del coche según tus necesidades */
   left: 400px;
 }
 
@@ -225,7 +225,7 @@ body{
   width: 50px; /* Ajusta el tamaño del coche según tus necesidades */
   height: auto;
   position: relative;
-  top: -330px; /* Ajusta la posición vertical del coche según tus necesidades */
+  top: -260px; /* Ajusta la posición vertical del coche según tus necesidades */
   left: 700px;
 }
 
@@ -242,7 +242,7 @@ body{
   width: 50px; /* Ajusta el tamaño del coche según tus necesidades */
   height: auto;
   position: relative;
-  top: -290px; /* Ajusta la posición vertical del coche según tus necesidades */
+  top: -200px; /* Ajusta la posición vertical del coche según tus necesidades */
   left: 1100px;
 }
 
