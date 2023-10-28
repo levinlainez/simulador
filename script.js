@@ -39,6 +39,9 @@ startSimulationBtn.addEventListener("click", function() {
 
   // Guarda los datos en localStorage solo cuando se hace clic en el botón de simulación
   calcularVelocidadRecorrida();
+  // Cierra el modal al iniciar la simulación
+  // Cierra el modal al hacer clic en el botón "Iniciar Simulación"
+  $('#exampleModal11').modal('hide');
   
 });
 
