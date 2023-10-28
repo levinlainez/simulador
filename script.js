@@ -1,5 +1,6 @@
 const carContainer = document.getElementById("car-container");
 const roadContainer = document.getElementById("road-container");
+const carImg = document.getElementById("car-img");
 
 let carPos = 0;
 let impulso = 0;
@@ -12,9 +13,11 @@ function moverCarro() {
     carPos += 5;
     carContainer.style.left = carPos + "px";
     tiempoTranscurrido += 50;
+    carImg.src = "coche1.png";
   } else {
     clearInterval(interval);
     calcularVelocidadRecorrida();
+    carImg.src = "coche.png";
   }
 }
 
@@ -27,23 +30,50 @@ miBoton.addEventListener("click", function() {
 const startSimulationBtn = document.getElementById("startSimulationBtn");
 
 startSimulationBtn.addEventListener("click", function() {
-  carPos = 0; // Restablece la posición del carro a 0 al iniciar la simulación
+  // Obtener los valores de los input
 
-  impulso = parseFloat(document.getElementById("input2").value);
-  tiempo = parseFloat(document.getElementById("input3").value);
 
-  const roadWidth = roadContainer.clientWidth;
-  const velocidad = roadWidth / impulso * 10;
-
-  interval = setInterval(moverCarro, velocidad);
-
-  // Guarda los datos en localStorage solo cuando se hace clic en el botón de simulación
-  calcularVelocidadRecorrida();
-  // Cierra el modal al iniciar la simulación
-  // Cierra el modal al hacer clic en el botón "Iniciar Simulación"
-  $('#exampleModal11').modal('hide');
   
+  const impulsoInput = document.getElementById("input2").value;
+  const tiempoInput = document.getElementById("input3").value;
+
+  // Verificar si los input contienen datos
+  if (impulsoInput && tiempoInput) {
+    // Restablecer la posición del coche a 0 al iniciar la simulación
+    carPos = 0;
+
+    // Obtener los valores de los input como números flotantes
+    impulso = parseFloat(impulsoInput);
+    tiempo = parseFloat(tiempoInput);
+
+    const roadWidth = roadContainer.clientWidth;
+    const velocidad = roadWidth / impulso * 10;
+
+    interval = setInterval(moverCarro, velocidad);
+
+    // Guarda los datos en localStorage solo cuando se hace clic en el botón de simulación
+    calcularVelocidadRecorrida();
+    // Cierra el modal al iniciar la simulación
+    // Cierra el modal al hacer clic en el botón "Iniciar Simulación"
+    $('#exampleModal11').modal('hide');
+  } else {
+    // Si los input están vacíos, muestra un mensaje de error o realiza alguna acción apropiada
+    
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Por favor, ingrese valores para los campos de impulso y tiempo.',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Abre el modal con el id #exampleModal11
+        $('#exampleModal11').modal('show');
+      }
+    });
+    
+    
+  }
 });
+
 
 function calcularVelocidadRecorrida() {
   const masa = parseFloat(document.getElementById("input1").value);
@@ -96,6 +126,7 @@ function calcularVelocidadRecorrida() {
 
   // Actualiza la tabla en la interfaz de usuario
   actualizarTabla();
+
   
 }
 

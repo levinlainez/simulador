@@ -166,11 +166,11 @@ body {
 }
 
 #car-container img {
-  width: 100px; /* Ajusta el tamaño del coche según tus necesidades */
+  width: 300px; /* Ajusta el tamaño del coche según tus necesidades */
   height: auto;
   position: relative;
   top: -XXpx; /* Ajusta la posición vertical del coche según tus necesidades */
-  margin-left: 100px;
+ 
 }
 
 #road-container img {
