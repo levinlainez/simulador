@@ -260,3 +260,6 @@ body{
 }
 
 
+#grilla th {
+  white-space: nowrap;
+}

@@ -34,7 +34,7 @@
                 id="startSimulationBtn">
                     <i class="fab fa-font-awesome-flag"></i> Iniciar</button>
                 <button class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal11"
-                    id="clasificacion">
+                    id="configuracion">
                     <i class="fa-solid fa-gear"></i> Configuracion</button>
                 <button class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal1"
                     id="clasificacion">
@@ -64,6 +64,7 @@
             <img class="moneda moneda-no-recolectada" src="moneda.png" alt="Moneda">
             <img class="moneda moneda-no-recolectada" src="moneda.png" alt="Moneda">
         </div>
+        
         <div id="road-container">
             <img src="calle.png" alt="Calle">
         </div>
@@ -71,7 +72,7 @@
 
     </div>
     <div class="">
-        <!--Modal 1-->
+        <!-- Modal 1 -->
         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
@@ -88,25 +89,28 @@
                                     <div class="card-header">
                                         <h5 class="fw-bold text-purple">Tabla de registro</h5>
                                     </div>
-                                    <div class="card-body tabla" id="grillaTabla">
-                                        <table class="table" id="grilla">
+                                    <div class="card-body tabla table-responsive " id="grillaTabla">
+                                        <table class="table table-bordered text-center " id="grilla">
                                             <tr class="bg-purple">
-                                                <th>Masa <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th>Fuerza Impulso <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th>Tiempo <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th>Coeficiente Friccion <i class="fa-solid fa-sort text-plomo"></i>
-                                                </th>
-                                                <th>Fuerza Friccion <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th>Fuerza Neta <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th>Aceleracion <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th>Distancia Recorrida <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Masa <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F. Impulso <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Tiempo <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Coef. Fricción <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F. Fricción <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F. Neta <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Aceleración <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Vel. Final <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-2">Dist. Recorrida <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                
                                             </tr>
-                                            <tbody id="tablaCuerpo"></tbody>
+                                            <tbody id="tablaCuerpo">
+                                                <!-- Filas de la tabla se agregarán aquí -->
+                                            </tbody>
                                         </table>
                                     </div>
+                                    
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div id="datos"></div>
@@ -114,6 +118,7 @@
             </div>
         </div>
     </div>
+    
 
     <div class="">
         <!--Modal 1-->
@@ -124,6 +129,9 @@
                     <div class="modal-header">
                         <h4 class="modal-title text-purple" id="exampleModalLabel">
                             <i class="fas fa-table"></i> Datos del ejercicio
+                            <button type="button" class="btn btn-primary" id="reniciar">Reset</button>
+                            <button type="button" class="btn btn-primary" id="iniciar">Start</button>
+
                         </h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>

@@ -2,26 +2,58 @@ const carContainer = document.getElementById("car-container");
 const roadContainer = document.getElementById("road-container");
 const carImg = document.getElementById("car-img");
 
+
 let carPos = 0;
 let impulso = 0;
 let tiempo = 0;
 let tiempoTranscurrido = 0;
 let interval;
 
-function moverCarro() {
-  if (carPos < impulso) {
-    carPos += 5;
-    carContainer.style.left = carPos + "px";
-    tiempoTranscurrido += 50;
 
+const velocidadInicial = 0; // Velocidad inicial del automóvil
+const incrementoVelocidad = 10; // Incremento en la velocidad para simular la fuerza de impulso
+let contador = 1;
+
+
+function moverCarro() {
+ 
+  let validar = 2499.4;
+  let validar1=0;
+  const tiempoInput = document.getElementById("input3").value;
+  if (carPos < impulso) {
+    carPos += incrementoVelocidad;
+    carContainer.style.left = carPos + "px";
+    tiempoTranscurrido += 100;
+    
     const { fuerzaNeta } = calcularFuerzaNeta();
     carImg.src = fuerzaNeta < 0 ? "coche2.png" : "coche1.png";
+
+    validar1 = validar * tiempoInput;
+    console.log(validar1);
+    console.log(tiempoTranscurrido);
+    if (tiempoTranscurrido >= validar1) {
+      clearInterval(interval);
+      calcularVelocidadRecorrida();
+      carImg.src = "coche.png";
+    }
   } else {
     clearInterval(interval);
     calcularVelocidadRecorrida();
     carImg.src = "coche.png";
   }
 }
+var botonReniciar = document.getElementById("reniciar");
+var botonIniciar = document.getElementById("iniciar");
+
+botonIniciar.addEventListener("click", function() {
+  iniciarSimulacion();
+});
+
+// Agrega un evento clic al botón "Resetear" para llamar a la función resetearPosicionCarro()
+botonReniciar.addEventListener("click", function() {
+  resetearPosicionCarro();
+});
+
 
 function calcularFuerzaNeta() {
   const masa = parseFloat(document.getElementById("input1").value);
@@ -31,6 +63,8 @@ function calcularFuerzaNeta() {
   const fuerzaFriccion = coeficienteFriccion * fuerzaNormal;
   const fuerzaImpulsora = impulso;
   const fuerzaNeta = fuerzaImpulsora - fuerzaFriccion;
+  
+
   const aceleracion = fuerzaNeta / masa;
 
   return {
@@ -39,12 +73,15 @@ function calcularFuerzaNeta() {
   };
 }
 
+
+
 function iniciarSimulacion() {
   const impulsoInput = document.getElementById("input2").value;
   const tiempoInput = document.getElementById("input3").value;
 
+
   if (impulsoInput && tiempoInput) {
-    carPos = 0;
+    
     impulso = parseFloat(impulsoInput);
     tiempo = parseFloat(tiempoInput);
 
@@ -78,6 +115,7 @@ startSimulationBtn.addEventListener("click", iniciarSimulacion);
 function calcularVelocidadRecorrida() {
   const { fuerzaNeta, aceleracion } = calcularFuerzaNeta();
   const distanciaRecorrida = 0.5 * aceleracion * Math.pow(tiempo, 2);
+  const velocidadFinal = aceleracion * tiempo;
 
   const nuevoRegistro = {
     masa: parseFloat(document.getElementById("input1").value).toFixed(2),
@@ -87,6 +125,7 @@ function calcularVelocidadRecorrida() {
     fuerzaFriccion: (parseFloat(document.getElementById("input4").value) * fuerzaNeta).toFixed(2),
     fuerzaNeta: fuerzaNeta.toFixed(2),
     aceleracion: aceleracion.toFixed(2),
+    velocidadFinal: velocidadFinal.toFixed(2),
     distanciaRecorrida: distanciaRecorrida.toFixed(2),
   };
 
@@ -100,6 +139,7 @@ function calcularVelocidadRecorrida() {
       registro.fuerzaFriccion === nuevoRegistro.fuerzaFriccion &&
       registro.fuerzaNeta === nuevoRegistro.fuerzaNeta &&
       registro.aceleracion === nuevoRegistro.aceleracion &&
+      registro.velocidadFinal === nuevoRegistro.velocidadFinal &&
       registro.distanciaRecorrida === nuevoRegistro.distanciaRecorrida
     );
   });
@@ -123,14 +163,15 @@ function actualizarTabla() {
     registrosGuardados.forEach(registro => {
       tablaCuerpo.innerHTML += `
         <tr>
-          <td>${registro.masa}</td>
-          <td>${registro.fuerzaImpulsora}</td> 
-          <td>${registro.tiempo}</td>
-          <td>${registro.coeficienteFriccion}</td>
-          <td>${registro.fuerzaFriccion}</td>
-          <td>${registro.fuerzaNeta}</td>
-          <td>${registro.aceleracion}</td>
-          <td>${registro.distanciaRecorrida}</td>   
+          <td nowrap>${registro.masa} kg</td>
+          <td nowrap>${registro.fuerzaImpulsora} N</td>
+          <td nowrap>${registro.tiempo} s</td>
+          <td nowrap>${registro.coeficienteFriccion}</td>
+          <td nowrap>${registro.fuerzaFriccion} N</td>
+          <td nowrap>${registro.fuerzaNeta} N</td>
+          <td nowrap>${registro.aceleracion} m/s²</td>
+          <td nowrap>${registro.velocidadFinal} m/s</td>
+          <td nowrap>${registro.distanciaRecorrida} m</td> 
         </tr>
       `;
     });
