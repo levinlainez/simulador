@@ -263,3 +263,48 @@ body{
 #grilla th {
   white-space: nowrap;
 }
+
+/*simulador 2*/
+/*aqui comienza mi codigo*/
+#car-container1 {
+  position: absolute;
+  bottom: 0;
+  left: 50px; /* Ajusta la posición horizontal del hombre según tus necesidades */
+  
+}
+#caja-container1 {
+  position: absolute;
+  bottom: 0;
+  left: 309px; /* Ajusta la posición horizontal del hombre según tus necesidades */
+  
+}
+#car-img1{
+  position: absolute;
+  bottom: 0;
+  left: 65px; /* Ajusta la posición horizontal del hombre según tus necesidades */
+  
+  
+}
+#caja {
+  position: absolute;
+  bottom: 0;
+  left: 0px; /* Ajusta la posición horizontal de la caja según tus necesidades */
+  z-index: 1;
+}
+
+#car-container1 img {
+  width: 260px;
+  height: auto;
+  position: relative;
+ 
+}
+
+#caja img {
+  width: 100%;
+  height: auto;
+
+}
+
+.fondo{
+  background-image: url(escenario2.png);
+}

@@ -189,3 +189,18 @@ window.onload = function() {
     actualizarTabla();
   }
 };
+
+// Espera a que el documento esté completamente cargado
+document.addEventListener("DOMContentLoaded", function() {
+  // Obtiene el elemento del botón por su ID
+  var miBoton = document.getElementById("miBoton");
+
+  // Agrega un controlador de eventos al botón para manejar el clic
+  miBoton.addEventListener("click", function() {
+      // Redirige a index.html
+      window.location.href = "simulador.html";
+  });
+});
+
+
+//codigo pagina 2
