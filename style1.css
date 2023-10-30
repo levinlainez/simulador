@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --app-bg: #101827;
+  --sidebar: rgba(21, 30, 47, 1);
+  --sidebar-main-color: #fff;
+  --table-border: #1a2131;
+  --table-header: #1a2131;
+  --app-content-main-color: #fff;
+  --sidebar-link: #fff;
+  --sidebar-active-link: #1d283c;
+  --sidebar-hover-link: #1a2539;
+  --action-color: #2869ff;
+  --action-color-hover: #6291fd;
+  --app-content-secondary-color: #1d283c;
+  --filter-reset: #2c394f;
+  --filter-shadow: rgba(16, 24, 39, 0.8) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.light:root {
+  --app-bg: #fff;
+  --sidebar: #f3f6fd;
+  --app-content-secondary-color: #f3f6fd;
+  --app-content-main-color: #1f1c2e;
+  --sidebar-link: #1f1c2e;
+  --sidebar-hover-link: rgba(195, 207, 244, 0.5);
+  --sidebar-active-link: rgba(195, 207, 244, 1);
+  --sidebar-main-color: #1f1c2e;
+  --filter-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(209, 219, 222);
+}
+
+.app-container {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  max-width: 1260px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 0 auto;
+  background-color: rgb(95, 163, 124);
+}
+
+.container-footer{
+  max-width: 1260px;
+  margin:0 auto;
+  width: 100%;
+}
+
+
+.bg-footer{
+  background-color:  #596262;
+}
+
+.mode-switch {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: var(--app-content-main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.mode-switch .moon {
+  fill: var(--sidebar-main-color);
+}
+
+.mode-switch.active .moon {
+  fill: none;
+}
+
+.app-icon {
+  color: var(--sidebar-main-color);
+}
+
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.app-content {
+  padding: 16px;
+  height: 100%;
+  flex: 1;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.app-content-headerText {
+  color: var(--sidebar-main-color); /* Corregido el nombre de la variable */
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+}
+
+.app-content-headerButton {
+  background-color: rgb(95, 163, 124); /* Fondo semi-transparente azul */
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  border: 1px solid #f3f6fd;
+  border-radius: 15px;
+  height: 32px;
+  padding: 0 16px;
+  margin: 0 1px;
+  transition: 0.2s;
+  cursor: pointer;
+  
+}
+
+.app-content-headerButton:hover {
+  background-color: rgb(95, 163, 124); /* Cambia el nivel de transparencia al pasar el mouse */
+}
+
+
+.app-content-headerButton:hover {
+  background-color: var(--action-color-hover);
+}
+
+.app-content-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 4px;
+}
+
+.app-content-actions-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 520px) {
+  .app-content-actions {
+    flex-direction: column;
+  }
+  .app-content-actions .search-bar {
+    max-width: 100%;
+    order: 2;
+  }
+  .app-content-actions .app-content-actions-wrapper {
+    padding-bottom: 16px;
+    order: 1;
+  }
+}
+
+/* Estilos para el enunciado */
+.enunciado {
+  position: relative;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enunciado h2 {
+  color: #343a40;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.enunciado-content {
+  color: #343a40;
+  font-size: 17px;
+  line-height: 1.6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;
+  max-width: 50%;
+  word-wrap: break-word;
+  margin-left: 30px; /* Agrega un margen izquierdo de 20px al párrafo */
+  margin-top: 20px; /* Agrega un margen superior de 20px al párrafo */
+}
+
+.enunciado-contenido {
+  color: #343a40;
+  font-size: 17px;
+  line-height: 1.6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin-left: 30px; /* Agrega un margen izquierdo de 20px al párrafo */
+  margin-top: 20px; /* Agrega un margen superior de 20px al párrafo */
+}
+
+.icon-container, .icon-calculador {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(195, 207, 244, 0.5);
+  padding: 10px; /* Reduce el tamaño del padding para hacer los iconos más pequeños */
+}
+
+.icon-container img, .icon-calculador img {
+  max-width: 25px; /* Ajusta el tamaño máximo de la imagen para hacer los iconos más pequeños */
+}
+
+.icon-container {
+  top: 30px;
+  right: 30px;
+}
+
+.icon-calculador {
+  top: 90px;
+  right: 30px;
+}
+
+p span{
+  font-weight: bold;
+}
+
+
+.icon-container img {
+  max-width: 25px;
+}
+
+
+.enunciado-formula {
+  border: 1px solid black; /* Establece un borde sólido de 1 píxel de ancho y color negro */
+  padding: 10px; /* Agrega espacio interno alrededor del texto */
+  margin-left: 55px; /* Agrega espacio externo entre el contenedor y otros elementos */
+  margin-top: 30px;
+  width: 300px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+.container- {
+  display: flex; /* Establece un contenedor flexible */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
+
+
+
+.text-dark {
+  margin: 0; /* Elimina el margen predeterminado de los párrafos */
+}
+
+input[type="text"] {
+  width: 140px; /* Ancho de los campos de entrada, ajusta según tus necesidades */
+  /* Agrega estilos adicionales según tus preferencias */
+}
+
+.enunciado input[type="text"] {
+  width: 13px; /* Establece el ancho del input a 13 píxeles, ajusta según sea necesario */
+  min-width: 13px; /* Establece el ancho mínimo del input */
+  color: black;
+  border: 1px solid #2869ff;
+  border-radius: 2px;
+  padding: 5px; /* Agrega espacio interno alrededor del texto en el input */
+  transition: all 0.3s ease; /* Agrega una transición suave para todos los estilos */
+  outline: none; /* Elimina el contorno predeterminado del input */
+}
+
+.enunciado input[type="text"]:focus {
+  border-color: transparent; /* Cambia el color del borde a transparente cuando el input está enfocado */
+  color: #000; /* Cambia el color del texto a negro cuando el input está enfocado */
+  width: 100px; /* Cambia el ancho del input a 50 píxeles cuando está enfocado */
+  max-width: 100px; /* Establece el ancho mínimo del input cuando está enfocado */
+  padding: 10px; /* Ajusta el espacio interno cuando está enfocado */
+  background-color: #f8f9fa;
+  
+}
+
+.bg-boton{
+background-color:   #46707D;
+color:white;
+
+}
+
+
+
+.input-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.symbol {
+  margin: 0 10px; /* Espaciado entre el símbolo de multiplicación y los inputs */
+}
+
+

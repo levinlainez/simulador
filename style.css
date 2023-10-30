@@ -46,6 +46,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 .app-container {
   border-radius: 4px;
   width: 100%;
@@ -307,4 +309,7 @@ body{
 
 .fondo{
   background-image: url(escenario2.png);
+}
+.fondo1 {
+  background-image: linear-gradient(to bottom, #fff, rgba(195, 207, 244, 1));
 }

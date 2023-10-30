@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula de Fricción</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1700" height="900"></canvas>
+  
+    <script>
+     const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// Establecer el tamaño y la fuente del texto
+ctx.font = 'bold 20px Arial';
+ctx.fillStyle = 'black';
+
+// Definir la posición inicial
+let x = 50;
+let y = 50;
+
+// Dibujar la fórmula de fricción estática con estilo
+ctx.fillText('μs', x, y);
+x += ctx.measureText('μs').width + 10; // Añadir espacio entre μs y el siguiente elemento
+ctx.fillText('=', x, y);
+
+x += ctx.measureText('=').width + 10; // Añadir espacio después del signo igual
+const ffStaticX = x; // Guardar la posición de Ffricción estática
+
+ctx.fillText('Ffricción estática', x, y);
+
+// Dibujar una línea horizontal debajo de Ffricción estática
+const ffStaticWidth = ctx.measureText('Ffricción estática').width;
+const lineY = y + 10; // La posición de la línea es 10 píxeles debajo del texto
+ctx.beginPath();
+ctx.moveTo(ffStaticX, lineY);
+ctx.lineTo(ffStaticX + ffStaticWidth, lineY);
+ctx.strokeStyle = 'black'; // Color de la línea
+ctx.lineWidth = 2; // Grosor de la línea
+ctx.stroke();
+
+// Dibujar Fuerza Normal debajo de la línea
+x = ffStaticX; // Restablecer la posición x a la posición de Ffricción estática
+y += 40; // Salto de línea
+ctx.fillText('Fuerza Normal', x, y);
+
+// Agregar un event listener para el clic derecho en el canvas
+canvas.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Prevenir el menú contextual por defecto del navegador
+    const userInput = prompt('Introduce un valor para Ffricción estática:'); // Pedir al usuario un valor
+    if (userInput !== null) {
+        const friccionEstatica = parseFloat(userInput);
+        if (!isNaN(friccionEstatica)) {
+            alert(`Has introducido: ${friccionEstatica}`);
+            // Aquí puedes usar friccionEstatica como desees
+        } else {
+            alert('Por favor, introduce un número válido.');
+        }
+    }
+});
+
+
+
+
+    </script>
+</body>
+</html>

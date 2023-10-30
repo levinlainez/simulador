@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Caja</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Incluye SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="./style1.css">
+</head>
+<body >
+    <div class="app-container ">
+        <div class="app-content">
+            <div class="app-content-header">
+                <h1 class="app-content-headerText">Grupo#6</h1>
+                <button class="mode-switch" title="Switch Theme">
+                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                </button>
+                <button id="miBoton" class="app-content-headerButton"><i class="fas fa-car"></i>
+                    Simulador Carro</button>
+                <button class="app-content-headerButton" id="startSimulationBtn">
+                    <i class="fab fa-font-awesome-flag"></i> Iniciar</button>
+                <button class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal11"
+                    id="configuracion">
+                    <i class="fa-solid fa-gear"></i> Configuracion</button>
+                <button class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                    id="clasificacion">
+                    <i class="fas fa-table"></i> Tabla de registro</button>
+            </div>
+            <div class="app-content-actions">
+                <div class="app-content-actions-wrapper">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-footer mt-2 ">
+       
+                <div class="enunciado p-4 bg-light ">
+                    <div class="icon-container">
+                        <img src="formula.png" alt="">
+                    </div>
+                    <div class="enunciado-content">
+                        <h2 class="text-dark">Problema 2:</h2>
+                        <p class="text-dark">Calcular la fuerza necesaria para desplazar un mueble con un peso de 450 N 
+                            horizontalmente a una velocidad constante. Se sabe que el coeficiente de fricción dinámico entre 
+                            el mueble y la superficie es de 0.43.   
+                        </p>
+                        <br>
+                        <p class="text-dark"><span>¿Cuánta fuerza adicional se debe aplicar para vencer la fricción y mantener el movimiento constante?</span></p>
+                        <div class="container-">
+                            <img src="fricciondinamica.png" alt="" class="small-image">
+
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="inputd" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="inputn" placeholder="" autocomplete="on"></p>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <div class="icon-calculador">
+                        <img src="calculador.png" alt="">
+                    </div>
+
+                    <div class="enunciado-formula">
+                        <p>F dinámica = <span id="mS"></span> <b>N</b></p>
+                       
+                    </div>
+                      
+                    <div class="row mt-4 ms-3">
+                        <div class="col-md-12">
+                            <button class="btn bg-boton mr-2" id="verificar">Verificar</button>
+                            <button class="btn btn-primary " id="siguiente">Siguiente</button>
+                        </div>
+                    </div>     
+        </div>
+    </div>
+    
+
+    <div class="">
+        <!-- Modal 1 -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-purple" id="exampleModalLabel">
+                            <i class="fas fa-table"></i> Tabla de registro
+                        </h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12 mb-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="fw-bold text-purple">Tabla de registro</h5>
+                                    </div>
+                                    <div class="card-body tabla table-responsive " id="grillaTabla">
+                                        <table class="table table-bordered text-center " id="grilla">
+                                            <tr class="bg-purple">
+                                                <th class="col-1">Masa <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F. Aplicada <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Coef. Fricción <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F. Fricción <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F. Normal <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Aceleración <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                
+                                                
+                                            </tr>
+                                            <tbody id="tablaCuerpo">
+                                                <!-- Filas de la tabla se agregarán aquí -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="datos"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="">
+        <!--Modal 1-->
+        <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-purple" id="exampleModalLabel">
+                            <i class="fas fa-table"></i> Datos del ejercicio
+                            <button type="button" class="btn btn-primary" id="detener">Stop</button>
+                            <button type="button" class="btn btn-primary" id="iniciar">Start</button>
+
+                        </h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12 mb-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="fw-bold text-purple">Datos del ejercicio</h5>
+                                    </div>
+                                    <div class="card-body tabla" id="grillaTabla1">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="input1">Masa:</label>
+                                                <input type="text" class="form-control mb-3" id="input1" value="110">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="input4">Fuerza Aplciada:</label>
+                                                <input type="text" class="form-control mb-3" id="input4" value="150">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="input2">Coeficiente:</label>
+                                                <input type="text" class="form-control mb-3" id="input2"
+                                                    value="0.2">
+                                            </div>
+                                            
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="datos1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <footer class=" container-footer bg-footer text-white text-center py-3 mt-2">
+        <div class="">
+            <p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script3.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+</body>
+
+</html>
