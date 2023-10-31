@@ -47,7 +47,7 @@
     
     <div class="container-footer mt-2 ">
        
-                <div class="enunciado p-4 bg-light ">
+                <div class="enunciado  p-4 bg-light ">
                     <div class="icon-container">
                         <img src="formula.png" alt="">
                     </div>
@@ -73,42 +73,114 @@
                         </span></p>
                         <p class="text-dark"><span>6. Si la fuerza de impulso se aplicara durante 3 segundos en lugar de 2 segundos, ¿cuál sería la distancia recorrida por el automóvil? 
                         </span></p>
-                        <p class="text-dark"><span>7. ¿Cuál sería la velocidad del automóvil al final de los 2 segundos si no hubiera fricción? (Usa la ecuación.
+                        <p class="text-dark"><span>7. ¿Cuál sería la velocidad del automóvil al final de los 2 segundos si no hubiera fricción?
  
                         </span></p>
                         <div class="container-">
-                            <img src="fricciondinamica.png" alt="" class="small-image">
+                            <img src="fuerzaNeta.png" alt="" class="small-image">
 
                             <div class="enunciado">
                                 <div class="input-container">
                                     <p class="text-dark"><input type="text" id="inputd" placeholder="" autocomplete="on"></p>
-                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark">&minus;</p>
                                     <p class="text-dark"><input type="text" id="inputn" placeholder="" autocomplete="on"></p>
                                 </div>
                                 
                             </div>
-                            
-                            
                         </div>
-                        
-                        
-                        
+
+                        <div class="container-">
+                            <img src="aceleracion.png" alt="" class="small-image">
+                            <div class="enunciado">
+                                <p class="text-dark"><input type="text" id="neta" placeholder="" autocomplete="on"></p>
+                                <hr>
+                                <p class="text-dark"><input type="text" id="normal" placeholder="" autocomplete="on"></p>
+                            </div> 
+                        </div>
+
+                        <div class="container-">
+                            <img src="velocidadFinal.png" alt="" class="small-image">
+
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="aceleracion" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="tiempo" placeholder="" autocomplete="on"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-">
+                            <img src="distancia.png" alt="" class="small-image">
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="co" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="ace" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="tiemp" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark"><sup>2</sup></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-">
+                            <img src="fuerzafriccion.png" alt="" class="small-image">
+
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="estatico" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="norma" placeholder="" autocomplete="on"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-">
+                            <img src="fuerzanormal.png" alt="" class="small-image">
+
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="masa" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="gravedad" placeholder="" autocomplete="on"></p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="icon-calculador">
                         <img src="calculador.png" alt="">
                     </div>
 
                     <div class="enunciado-formula">
-                        <p>F dinámica = <span id="mS"></span> <b>N</b></p>
+                       <p >Fneta = <span id="fn"></span> N</p>
+                        <p>aceleración = <span id="a"></span> m/s<sup>2</sup></p>
+                        <p>Vfinal con fricción = <span id="vf"></span> m/s<sup>2</sup></p>
+                        <p>distancia 2s = <span id="d2"></span> m</p>
+                        <p>Ffriccion= <span id="ff"></span> N</p>
+                        <p>Fnormal= <span id="fno"></span> N</p>
+                        <p>Distancia μs 0.1 = <input class="inputSinEstilo" type="text" id="masa" placeholder="" autocomplete="on"> m</p>
+                        <p>Distancia 3s = <input class="inputSinEstilo" type="text" id="masa" placeholder="" autocomplete="on"> m</p>
+                        <p>Vfinal sin fricción = <input class="inputSinEstilo" type="text" id="masa" placeholder="" autocomplete="on">m/s<sup>2</sup></p>
                        
                     </div>
                       
                     <div class="row mt-4 ms-3">
                         <div class="col-md-12">
                             <button class="btn bg-boton mr-2" id="verificar">Verificar</button>
-                            <button class="btn btn-primary " id="siguiente">Siguiente</button>
+                            
                         </div>
-                    </div>     
+                    </div> 
+                    <div class="container mt-5">
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="problema2.html">Anterior</a></li>
+                            <li class="page-item"><a class="page-link active" href="problema1.html">1</a></li>
+                            <li class="page-item"><a class="page-link" href="problema2.html">2</a></li>
+                            <li class="page-item"><a class="page-link" href="problema3.html">3</a></li>
+                            <li class="page-item"><a class="page-link" href="problema4.html">4</a></li>
+                            <li class="page-item"><a class="page-link" href="problema4.html">Siguiente</a></li>
+                          </ul>
+                        </nav>
+                      </div>     
         </div>
     </div>
     
@@ -134,13 +206,14 @@
                                     <div class="card-body tabla table-responsive " id="grillaTabla">
                                         <table class="table table-bordered text-center " id="grilla">
                                             <tr class="bg-purple">
-                                                <th class="col-1">Masa <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th class="col-1">F. Aplicada <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">F Neta <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Aceleración <i class="fa-solid fa-sort text-plomo"></i></th>
                                                 <th class="col-1">Coef. Fricción <i class="fa-solid fa-sort text-plomo"></i></th>
                                                 <th class="col-1">F. Fricción <i class="fa-solid fa-sort text-plomo"></i></th>
                                                 <th class="col-1">F. Normal <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                <th class="col-1">Aceleración <i class="fa-solid fa-sort text-plomo"></i></th>
-                                                
+                                                <th class="col-1">Distancia <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Tiempo <i class="fa-solid fa-sort text-plomo"></i></th>
+                                                <th class="col-1">Velocidad <i class="fa-solid fa-sort text-plomo"></i></th>
                                                 
                                             </tr>
                                             <tbody id="tablaCuerpo">
@@ -222,7 +295,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script3.js"></script>
+    <script src="script4.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"

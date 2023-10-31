@@ -47,42 +47,83 @@
     
     <div class="container-footer mt-2 ">
        
-                <div class="enunciado p-4 bg-light ">
+                <div class="enunciado  p-4 bg-light ">
                     <div class="icon-container">
                         <img src="formula.png" alt="">
                     </div>
-                    <div class="enunciado-content">
-                        <h2 class="text-dark">Problema 2:</h2>
-                        <p class="text-dark">Calcular la fuerza necesaria para desplazar un mueble con un peso de 450 N 
-                            horizontalmente a una velocidad constante. Se sabe que el coeficiente de fricción dinámico entre 
-                            el mueble y la superficie es de 0.43.   
+                    <div class="enunciado-contenido">
+                        <h2 class="text-dark">Problema 4:</h2>
+                        <p class="text-dark">Un estudiante de la Universidad Tecnológica de Honduras está intentando 
+                            desplazar una caja de 110 kg sobre una superficie horizontal. Para lograrlo, aplica una 
+                            fuerza de 150 N. El coeficiente de fricción entre la caja y la superficie es de 0.2.
+  
                         </p>
                         <br>
-                        <p class="text-dark"><span>¿Cuánta fuerza adicional se debe aplicar para vencer la fricción y mantener el movimiento constante?</span></p>
+                        <p class="text-dark"><span>1. ¿Cuál es la fuerza normal que actúa sobre la caja? 
+                        </span></p>
+                        <p class="text-dark"><span>2. ¿Cuál es la aceleración de la caja?
+                        </span></p>
+                        <p class="text-dark"><span>3. ¿Cuál es la fuerza de fricción entre la caja y la superficie?" 
+                        </span></p>
+                       
+                       
                         <div class="container-">
-                            <img src="fricciondinamica.png" alt="" class="small-image">
+                            <img src="fuerzaNeta.png" alt="" class="small-image">
 
                             <div class="enunciado">
                                 <div class="input-container">
                                     <p class="text-dark"><input type="text" id="inputd" placeholder="" autocomplete="on"></p>
-                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark">&minus;</p>
                                     <p class="text-dark"><input type="text" id="inputn" placeholder="" autocomplete="on"></p>
                                 </div>
                                 
                             </div>
-                            
-                            
                         </div>
-                        
-                        
-                        
+
+                        <div class="container-">
+                            <img src="aceleracion.png" alt="" class="small-image">
+                            <div class="enunciado">
+                                <p class="text-dark"><input type="text" id="neta" placeholder="" autocomplete="on"></p>
+                                <hr>
+                                <p class="text-dark"><input type="text" id="normal" placeholder="" autocomplete="on"></p>
+                            </div> 
+                        </div>
+
+                        <div class="container-">
+                            <img src="fuerzafriccion.png" alt="" class="small-image">
+
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="estatico" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="norma" placeholder="" autocomplete="on"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-">
+                            <img src="fuerzanormal.png" alt="" class="small-image">
+
+                            <div class="enunciado">
+                                <div class="input-container">
+                                    <p class="text-dark"><input type="text" id="masa" placeholder="" autocomplete="on"></p>
+                                    <p class="text-dark">&times;</p>
+                                    <p class="text-dark"><input type="text" id="gravedad" placeholder="" autocomplete="on"></p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="icon-calculador">
                         <img src="calculador.png" alt="">
                     </div>
 
                     <div class="enunciado-formula">
-                        <p>F dinámica = <span id="mS"></span> N</p>
+                       <p >Fneta = <span id="fn"></span> N</p>
+                    <p>aceleración = <span id="a"></span> m/s<sup>2</sup></p>
+                        
+                        <p>Ffriccion= <span id="ff"></span> N</p>
+                        <p>Fnormal= <span id="fno"></span> N</p>
+                        
                        
                     </div>
                       
@@ -91,19 +132,19 @@
                             <button class="btn bg-boton mr-2" id="verificar">Verificar</button>
                             
                         </div>
-                    </div>  
+                    </div> 
                     <div class="container mt-5">
                         <nav aria-label="Page navigation example">
                           <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" href="problema1.html">Anterior</a></li>
+                            <li class="page-item"><a class="page-link" href="problema3.html">Anterior</a></li>
                             <li class="page-item"><a class="page-link active" href="problema1.html">1</a></li>
                             <li class="page-item"><a class="page-link" href="problema2.html">2</a></li>
                             <li class="page-item"><a class="page-link" href="problema3.html">3</a></li>
                             <li class="page-item"><a class="page-link" href="problema4.html">4</a></li>
-                            <li class="page-item"><a class="page-link" href="problema3.html">Siguiente</a></li>
+                            <li class="page-item"><a class="page-link" href="index.html">Siguiente</a></li>
                           </ul>
                         </nav>
-                      </div>    
+                      </div>     
         </div>
     </div>
     
@@ -217,7 +258,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script3.js"></script>
+    <script src="script5.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"

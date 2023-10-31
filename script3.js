@@ -4,7 +4,8 @@ const inputdinamica = document.getElementById("inputd");
 const inputnormal = document.getElementById("inputn");
 const next = document.getElementById("siguiente");
 const verificar = document.getElementById("verificar");
-const resultadoS=193.5;
+const resultadoS=0.46;
+const resultadoK=0.40;
 
 
 let resultadoID = "";
@@ -84,3 +85,16 @@ verificar.addEventListener("click", function() {
     
   }
 });
+
+  // Obtén el botón por su ID
+  const miBoton = document.getElementById("miBoton");
+
+  // Agrega un evento de clic al botón
+  miBoton.addEventListener("click", function() {
+      // Redirige a la URL deseada cuando se hace clic en el botón
+      window.location.href = "index.html";
+  });
+  
+  
+  
+  

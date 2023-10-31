@@ -173,11 +173,13 @@ body, html {
 /* Estilos para el enunciado */
 .enunciado {
   position: relative;
-  padding: 20px;
+  padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .enunciado h2 {
   color: #343a40;
@@ -189,6 +191,18 @@ body, html {
 .enunciado-content {
   color: #343a40;
   font-size: 17px;
+  line-height: 1.6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;
+  max-width: 50%;
+  word-wrap: break-word;
+  margin-left: 30px; /* Agrega un margen izquierdo de 20px al párrafo */
+  margin-top: 20px; /* Agrega un margen superior de 20px al párrafo */
+}
+
+.enun3 {
+  color: #343a40;
+  font-size: 16px;
   line-height: 1.6;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: justify;
@@ -231,9 +245,7 @@ body, html {
   right: 30px;
 }
 
-p span{
-  font-weight: bold;
-}
+
 
 
 .icon-container img {
@@ -244,11 +256,20 @@ p span{
 .enunciado-formula {
   border: 1px solid black; /* Establece un borde sólido de 1 píxel de ancho y color negro */
   padding: 10px; /* Agrega espacio interno alrededor del texto */
-  margin-left: 55px; /* Agrega espacio externo entre el contenedor y otros elementos */
+  margin-left: 30px; /* Agrega espacio externo entre el contenedor y otros elementos */
   margin-top: 30px;
-  width: 300px;
-  font-size: 20px;
+  width: 400px;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
+
+
+.enunciado-formula-sin .ancho {
+  border: none;
+  width: 50px;
+}
+
 
 
 
@@ -281,6 +302,18 @@ input[type="text"] {
   padding: 5px; /* Agrega espacio interno alrededor del texto en el input */
   transition: all 0.3s ease; /* Agrega una transición suave para todos los estilos */
   outline: none; /* Elimina el contorno predeterminado del input */
+}
+
+
+.enunciado-formula input[type="text"].inputSinEstilo {
+  width: 70px;
+  min-width: 13px;
+  background-color: #f8f9fa;
+  border: 1px solid #2869ff;
+  border-radius: 2px;
+  padding: 5px;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .enunciado input[type="text"]:focus {
