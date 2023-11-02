@@ -41,7 +41,7 @@ body, html {
 body {
   overflow: hidden;
   font-family: "Poppins", sans-serif;
-  background-image: url(escenario2.png);
+  background-image: url(escenario3.png);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -168,7 +168,7 @@ body {
 }
 
 #car-container img {
-  width: 400px; /* Ajusta el tamaño del coche según tus necesidades */
+  width: 300px; /* Ajusta el tamaño del coche según tus necesidades */
   height: auto;
   position: relative;
   top: -XXpx; /* Ajusta la posición vertical del coche según tus necesidades */
@@ -305,10 +305,5 @@ body {
 
 }
 
-.fondo{
-  background-image: url(escenario2.png);
-}
-.fondo1 {
-  background-image: linear-gradient(to bottom, #fff, rgba(195, 207, 244, 1));
-}
+
 

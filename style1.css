@@ -41,6 +41,11 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(209, 219, 222);
 }
+.ejer2{
+  
+  width: 100%;
+  height: auto;
+}
 
 .app-container {
   border-radius: 4px;

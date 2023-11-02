@@ -4,8 +4,8 @@ const inputdinamica = document.getElementById("inputd");
 const inputnormal = document.getElementById("inputn");
 const next = document.getElementById("siguiente");
 const verificar = document.getElementById("verificar");
-const resultadoS=0.46;
-const resultadoK=0.40;
+const resultadoS=150.5;
+
 
 
 let resultadoID = "";

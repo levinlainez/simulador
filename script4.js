@@ -66,7 +66,7 @@ function calcularYMostrarResultado(input1, input2, id) {
   const valorInput2 = parseFloat(input2.value);
 
   // Realiza la división y muestra el resultado en el elemento con el ID proporcionado
-  if (!isNaN(valorInput1) && !isNaN(valorInput2) && valorInput2 !== 0) {
+  if (!isNaN(valorInput1) && !isNaN(valorInput2)) {
       resultado = valorInput1 - valorInput2;
       console.log(resultado);
       document.getElementById(id).textContent = resultado.toFixed(2);
@@ -399,16 +399,16 @@ verificar.addEventListener("click", function() {
 
       // Agregar celdas a la fila con los valores obtenidos del objeto
       fila.innerHTML = `
-          <td>${infoObj.fn}</td>
-          <td>${infoObj.a}</td>
-          <td>${infoObj.vf}</td>
-          <td>${infoObj.d2}</td>
-          <td>${infoObj.ff}</td>
-          <td>${infoObj.fno}</td>
-          <td>${infoObj.tiempo}</td>
+          <td>${infoObj.fn} N</td>
+          <td>${infoObj.a} m/s<sup>2</sup></td>
           <td>${infoObj.estico}</td>
+          <td>${infoObj.ff} N</td>
+          <td>${infoObj.fno} N</td>
+          <td>${infoObj.tiempo} s</td>
+          <td>${infoObj.vf} m/s</td>
+          <td>${infoObj.d2} m</td>
       `;
-
+  
       // Agregar la fila al cuerpo de la tabla
       tabla.appendChild(fila);
   }

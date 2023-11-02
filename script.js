@@ -1,6 +1,7 @@
 const carContainer = document.getElementById("car-container");
 const roadContainer = document.getElementById("road-container");
 const carImg = document.getElementById("car-img");
+const coeficienteFriccion = parseFloat(document.getElementById("input4").value);
 
 
 let carPos = 0;
@@ -14,19 +15,62 @@ const velocidadInicial = 0; // Velocidad inicial del automóvil
 const incrementoVelocidad = 10; // Incremento en la velocidad para simular la fuerza de impulso
 let contador = 1;
 
+var botonIniciar = document.getElementById("iniciar");
+
+
+
+document.getElementById('iniciar').addEventListener('click', function() {
+  var coeficienteDeFriccion = parseFloat(document.getElementById('input4').value);
+  var roadContainer = document.getElementById('road-container');
+  var carcontaine = document.getElementById('car-container');
+  
+  // Cambiar la imagen de fondo del cuerpo según el valor del coeficiente de fricción
+  if (coeficienteDeFriccion === 0) {
+    document.body.style.backgroundImage = 'url(escenario1.png)';
+      
+  } else if (coeficienteDeFriccion === 0.1) {
+    document.body.style.backgroundImage = 'url(escenario.png)';
+    
+  } else if (coeficienteDeFriccion === 0.2) {
+      document.body.style.backgroundImage = 'url(escenario2.png)';
+  }
+
+  // Cambiar la imagen dentro del contenedor según el valor del coeficiente de fricción
+  if (coeficienteDeFriccion === 0) {
+      roadContainer.innerHTML = '<img src="calle.png" alt="Calle">';
+      carcontaine.innerHTML = '<img src="coche1.png" alt="Coche">';
+
+  } else if (coeficienteDeFriccion === 0.1) {
+      roadContainer.innerHTML = '<img src="call.png" alt="Calle 1">';
+  } else if (coeficienteDeFriccion === 0.2) {
+      roadContainer.innerHTML = '<img src="call1.png" alt="Calle 2">';
+  }
+});
+
+
+
+
 
 function moverCarro() {
  
-  let validar = 2499.4;
-  let validar1=0;
+  
+  let validar1 = 0;
+  var coeficienteDeFriccion = parseFloat(document.getElementById('input4').value);
+  
+  validar = 3666.4;
+  
   const tiempoInput = document.getElementById("input3").value;
+  
+  // Resto de tu código aquí
+  
   if (carPos < impulso) {
     carPos += incrementoVelocidad;
     carContainer.style.left = carPos + "px";
-    tiempoTranscurrido += 100;
     
+    
+      tiempoTranscurrido +=110; 
     const { fuerzaNeta } = calcularFuerzaNeta();
-    carImg.src = fuerzaNeta < 0 ? "coche2.png" : "coche1.png";
+    carImg.src = fuerzaNeta < 0 ? "coche2.png" : "coche111.png";
 
     validar1 = validar * tiempoInput;
     console.log(validar1);
@@ -43,11 +87,6 @@ function moverCarro() {
   }
 }
 var botonReniciar = document.getElementById("reniciar");
-var botonIniciar = document.getElementById("iniciar");
-
-botonIniciar.addEventListener("click", function() {
-  iniciarSimulacion();
-});
 
 // Agrega un evento clic al botón "Resetear" para llamar a la función resetearPosicionCarro()
 botonReniciar.addEventListener("click", function() {
@@ -57,10 +96,11 @@ botonReniciar.addEventListener("click", function() {
 
 function calcularFuerzaNeta() {
   const masa = parseFloat(document.getElementById("input1").value);
-  const coeficienteFriccion = parseFloat(document.getElementById("input4").value);
+  var coeficienteDeFriccion = parseFloat(document.getElementById('input4').value);
+
   const aceleracionGravedad = 9.81;
   const fuerzaNormal = masa * aceleracionGravedad;
-  const fuerzaFriccion = coeficienteFriccion * fuerzaNormal;
+  const fuerzaFriccion = coeficienteDeFriccion * fuerzaNormal;
   const fuerzaImpulsora = impulso;
   const fuerzaNeta = fuerzaImpulsora - fuerzaFriccion;
   
@@ -115,6 +155,7 @@ startSimulationBtn.addEventListener("click", iniciarSimulacion);
 function calcularVelocidadRecorrida() {
   const { fuerzaNeta, aceleracion } = calcularFuerzaNeta();
   const distanciaRecorrida = 0.5 * aceleracion * Math.pow(tiempo, 2);
+  
   const velocidadFinal = aceleracion * tiempo;
 
   const nuevoRegistro = {
